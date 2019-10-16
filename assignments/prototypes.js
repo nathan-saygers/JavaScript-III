@@ -25,14 +25,14 @@ function GameObject(gameProperties) {
 // Character Stats Constructor //
 function CharacterStats(charProperties) {
     GameObject.call(this, charProperties); // Call in GameObject //
-    this.hp = charProperties.hp;
+    this.healthPoints = charProperties.healthPoints;
     this.name = charProperties.name;
   }
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
 // Take Damage Prototype //
 CharacterStats.prototype.takeDamage = function() {
-    return '<object name> took damage.';
+    return this.name + ' took damage.';
   }
 
 // Humanoid Constructor //
@@ -47,7 +47,7 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 // Greet prototype //
 Humanoid.prototype.greet = function() {
-  return '<object name> offers a greeting in <object language>.';
+  return `${this.name} offers a greeting in ${this.language}`;
 }
 
 /*
